@@ -1,7 +1,7 @@
 
 Behavioral data, fMRI metadata, and experiment code accompanying:
 
-Coraline Rinn Iordan, Victoria J.H. Ritvo, Kenneth A. Norman, Nicholas B. Turk-Browne, Jonathan D. Cohen (2020). Sculpting new visual categories in the human brain. bioRxiv (revised 2024), https://www.biorxiv.org/content/10.1101/2020.10.14.339853v3
+Coraline Rinn Iordan, Victoria J.H. Ritvo, Kenneth A. Norman, Nicholas B. Turk-Browne, Jonathan D. Cohen (2020). Sculpting new visual categories into the human brain. bioRxiv (revised 2024), https://www.biorxiv.org/content/10.1101/2020.10.14.339853v3
 
 Abstract:
 
