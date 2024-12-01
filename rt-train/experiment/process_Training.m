@@ -49,7 +49,7 @@ end
 info.hook = zeros( 1, PARAMS.TRAINING.TOTALRUNTRS );
 info.categOrder = categOrder;
 
-trial = 0; inTrial = 0; normIdx = []; % firstTrialTRs = []; secondTrialTRs = [];
+trial = 0; inTrial = 0; normIdx = [];
 for tr = 1 : PARAMS.TRAINING.TOTALRUNTRS
 
     trStart = GetSecs;
@@ -133,7 +133,7 @@ for tr = 1 : PARAMS.TRAINING.TOTALRUNTRS
         sliceFilt( isinf( sliceFilt ) ) = 0;
         info.patterns.sliceFilteredZ( tr, : ) = sliceFilt;
         
-        % Apply model to current slice and write suggested feedback to disk % CHANGED TO REMOVE UN_NORMALIZATION STEP WITH TRAINING PCA MU = 1 x numVoxels
+        % Apply model to current slice and write suggested feedback to disk
         trailingIdx = tr; % if inTrial >= PARAMS.TRAINING.TRAILINGTRS, trailingIdx = tr - inTrial + 1 : tr; else trailingIdx = tr - PARAMS.TRAINING.TRAILINGTRS + 1 : tr; end
         [ info.feedback( tr ), info.point( tr ) ] = utils_ApplyModel( PARAMS.LOCALIZER.MODELS( 1 ), PARAMS.TRAINING.TRIALORDER( currentRun, trial ), squeeze( nanmean( info.patterns.sliceFilteredZ( trailingIdx, : ), 1 ) )' );
         % Write feedback for previous TR! (using Prototype run model by default)

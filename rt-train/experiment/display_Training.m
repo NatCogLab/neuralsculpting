@@ -92,7 +92,7 @@ for trial = 1 : PARAMS.TRAINING.NTRIALSPERRUN
         
         % Generate all frames for current shape based on 'currentWobble'
         for k = 1 : PARAMS.TRAINING.NUMWOBBLESPERSHAPE
-            ray = PARAMS.TRAINING.RAY{ currentRun, trial, shape, k }; % randomly change X-Y-Z wobble direction! % randn( 1, 3 ); % ray = radius * ray * frameStep / norm( ray );
+            ray = PARAMS.TRAINING.RAY{ currentRun, trial, shape, k };
             
             % Save time by only generating every 3 frames
             for f = 1 : PARAMS.TRAINING.NUMFRAMESPERWOBBLE

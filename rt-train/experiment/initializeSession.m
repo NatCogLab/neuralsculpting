@@ -294,6 +294,8 @@ PARAMS.TRAINING.DISPLAYCUTOFF = 0.200; % must find feedback 200 ms before next t
 PARAMS.TRAINING.NSHAPES = 17;
 PARAMS.TRAINING.CENTERSTEP = 9;
 PARAMS.TRAINING.CATEGORY1 = { 'E', 'F', 'G', 'H', 'I', 'J' };
+% 130 = { 'B', 'C', 'D', 'E', 'F', 'G' };
+% 129 = { 'C', 'D', 'E', 'F', 'G', 'H' };
 % 126 = { 'E', 'F', 'G', 'H', 'I', 'J' };
 % 124 = { 'D', 'E', 'F', 'G', 'H', 'I' };
 % 121 = { 'D', 'E', 'F', 'G', 'H', 'I' };
@@ -303,6 +305,8 @@ PARAMS.TRAINING.CATEGORY1 = { 'E', 'F', 'G', 'H', 'I', 'J' };
 % 110 = { 'F', 'G', 'H', 'I', 'J', 'K' };
 % 107 = { 'E', 'F', 'G', 'H', 'I', 'J' };
 PARAMS.TRAINING.CATEGORY2 = { 'K', 'L', 'A', 'B', 'C', 'D' };
+% 130 = { 'H', 'I', 'J', 'K', 'L', 'A' };
+% 129 = { 'I', 'J', 'K', 'L', 'A', 'B' };
 % 126 = { 'K', 'L', 'A', 'B', 'C', 'D' };
 % 124 = { 'J', 'K', 'L', 'A', 'B', 'C' };
 % 121 = { 'J', 'K', 'L', 'A', 'B', 'C' };
@@ -315,6 +319,8 @@ PARAMS.TRAINING.CATEGORY2 = { 'K', 'L', 'A', 'B', 'C', 'D' };
 PARAMS.TRAINING.ANGLEGAP = 30;
 
 PARAMS.TRAINING.WOBBLERANGE.CAT1angle = 120 + [ 0 - PARAMS.TRAINING.ANGLEGAP / 2, 180 - PARAMS.TRAINING.ANGLEGAP / 2 ]; % var + [ -015 : +165 ]
+% 130: 030 + -015 : +165 == +015 : +195 :: A/B to G/H :: BCDEFG vs. HIJKLA
+% 129: 060 + -015 : +165 == +045 : +225 :: B/C to H/I :: CDEFGH vs. IJKLAB
 % 126: 120 + -015 : +165 == +105 : +285 :: D/E to J/K :: EFGHIJ vs. KLABCD   
 % 124: 090 + -015 : +165 == +075 : +255 :: C/D to I/J :: DEFGHI vs. JKLABC
 % 121: 090 + -015 : +165 == +075 : +255 :: C/D to I/J :: DEFGHI vs. JKLABC   
@@ -325,6 +331,8 @@ PARAMS.TRAINING.WOBBLERANGE.CAT1angle = 120 + [ 0 - PARAMS.TRAINING.ANGLEGAP / 2
 % 107: 120 + -015 : +165 == +105 : +285 :: D/E to J/K :: EFGHIJ vs. KLABCD
 
 PARAMS.TRAINING.WOBBLERANGE.CAT2angle = 120 + [ 180 - PARAMS.TRAINING.ANGLEGAP / 2, 360 - PARAMS.TRAINING.ANGLEGAP / 2 ]; % var + [ +165 : +345 ]
+% 130: 030 + +165 : +345 == +195 : +015 :: G/H to A/B :: HIJKLA vs. BCDEFG
+% 129: 060 + +165 : +345 == +225 : +045 :: H/I to B/C :: IJKLAB vs. CDEFGH
 % 126: 120 + +165 : +345 == +285 : +105 :: J/K to D/E :: KLABCD vs. EFGHIJ
 % 124: 090 + +165 : +345 == +255 : +075 :: I/J to C/D :: JKLABC vs. DEFGHI
 % 121: 090 + +165 : +345 == +255 : +075 :: I/J to C/D :: JKLABC vs. DEFGHI
@@ -392,7 +400,6 @@ for run = 1 : PARAMS.TRAINING.NRUNS
         ray = randn( 1, 3 ); ray( 3 ) = 0; % one ray per trial to eliminate speed confusion
         for shape = 1 : PARAMS.TRAINING.NSWITCHESPERTRIAL
             for wob = 1 : PARAMS.TRAINING.NUMWOBBLESPERSHAPE
-                % ray = randn( 1, 3 ); ray( 3 ) = 0; % In-plane % ray = ( randi( 2, 1, 3 ) * 2 - 3 ) .* rand( 1, 3 );
                 PARAMS.TRAINING.RAY{ run, trial, shape, wob } = ray / norm( ray );
             end
         end
