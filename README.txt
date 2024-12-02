@@ -23,7 +23,7 @@ Day 10          behavioral post-test (2AFC) (Day 9 for participants 107 & 117)
 Directory structure:
 
 behavior/experiment	Experiment code	for 2AFC behavioral pre-test and post-test
-behavior/data		Raw data for 2AFC behavioral pre-test and post-test for each participant
+behavior/data		Behavioral data for 2AFC behavioral pre-test and post-test for each participant
 localizer/experiment	Experiment code for stimulus display during fMRI localizer sessions (12--15 scanner runs per participant total)
 localizer/scripts	Bash/AFNI scripts for preprocessing fMRI data collected during localizer sessions
 localizer/metadata	Metadata collected during localizer scanning sessions
@@ -32,7 +32,7 @@ rt-train/scripts	Bash/AFNI scripts for preprocessing real-time fMRI neurofeedbac
 rt-train/metadata	Metadata collected during real-time fMRI neurofeedback training sessions
 rt-train/movies		Example movies of real-time fMRI neurofeedback training trials, with and without details about the neural model estimation
 
-Due to hardware issues, three participants had to skip one training day each (participant 107: session 2; participant 110: session 1; participant 118: session 1). This is reflected in the inconsistent numbering for training sessions metadata for these participants in rt-train/metadata (e.g., metadata is included for the 6 training sessions of participant 118, which are numbered 2-7, corresponding to the days for which the participant reported to the lab for scanning).
+Due to in-scanner hardware issues, three participants had to skip one training day each (participant 107: session 2; participant 110: session 1; participant 118: session 1). This is reflected in the inconsistent numbering for training sessions metadata for these participants in rt-train/metadata (e.g., metadata is included for the 6 training sessions of participant 118, which are numbered 2-7, corresponding to the days for which the participant reported to the lab for scanning).
 
 fMRI data for all 78 scanning sessions of the study (localizer and rt-train) is publicly available in BIDS format in the following NIH repository: https://nda.nih.gov/study.html?id=1098
 
